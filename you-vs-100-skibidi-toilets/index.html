@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>You vs 100 Skibidi Toilets</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Nunito:wght@400;600;700;800;900"/>
+        <meta charset="UTF-8"/>
+        <meta name="description" content="The game files for You vs 100 Skibidi Toilets, a free browser game on CrazyGames.com"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Accept-CH" content="DPR"/>
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=no, minimal-ui"/>
+        <style id="ziggyLoaderStyles">html {
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+
+            body {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                background-color: #13141E;
+                overflow: hidden;
+            }
+
+        
+
+            .ziggyLoader {
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                color: #F9FAFF;
+                font-family: 'Nunito',Arial,"Helvetica Neue",Helvetica,sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                position: absolute;
+                z-index: 3;
+                opacity: 0.5;
+            }
+
+            @keyframes bob {
+                0% {
+                    transform: translate(0px, 0px);
+                }
+
+                50% {
+                    transform: translate(0px, 10.5px);
+                }
+
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ziggyLoader" id="ziggyLoader">
+            <div class="container">
+             
+                <div style="margin-top:18px;">Loading...</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function loadScript(url, callback) {
+                var head = document.head;
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = url;
+                script.async = true;
+                script.onreadystatechange = callback;
+                script.onload = callback;
+                head.appendChild(script);
+            }
+            var options = {
+                "loader": "unity2023",
+                "loaderOptions": {
+                    "showProgress": true,
+                    "unityLoaderUrl": "Build/YouVsSkibidi_Crazy.loader.js",
+                    "unityConfigOptions": {
+                        "codeUrl": "Build/YouVsSkibidi_Crazy.wasm.br",
+                        "dataUrl": "Build/YouVsSkibidi_Crazy.data.br",
+                        "frameworkUrl": "Build/YouVsSkibidi_Crazy.framework.js.br"
+                    },
+                    "unitySaveFileNames": ["savedata_horde_skidibi.dat"]
+                },
+                "author": "GoGoMan",
+                "thumbnail": "you-vs-100-skibidi-toilets-cover.png",
+                "gameName": "You vs 100 Skibidi Toilets",
+                "gameHttps": true,
+                "gameSlug": "you-vs-100-skibidi-toilets",
+                "gameId": "21963",
+                "gameStatus": "published",
+                "showAdOnExternal": "ALWAYS",
+                "showAdOnInternal": "DEFAULT",
+                "disableEmbedding": false,
+                "dollarRate": 0.9086952136297013,
+                "upvotes": null,
+                "downvotes": null,
+                "releaseDate": "2023-07-31",
+                "locale": "en_US",
+                "controls": {
+                    "text": "<h3>Controls</h3>\n<ul>\n    <li>WASD or arrow keys = move</li>\n    <li>Space = roll / jump / climb</li>\n    <li>Left mouse button = shoot</li>\n    <li>Right mouse button (hold) = aim</li>\n    <li>R = reload</li>\n    <li>Mouse wheel = next/previous weapon</li>\n    <li>1 - 6 = weapon hotkeys</li>\n</ul>"
+                },
+                "videoThumbnail": "",
+                "video": {
+                    "original": "",
+                    "sizes": [{
+                        "width": 205,
+                        "height": 115,
+                        "location": ""
+                    }, {
+                        "width": 249,
+                        "height": 140,
+                        "location": ""
+                    }, {
+                        "width": 364,
+                        "height": 208,
+                        "location": ""
+                    }, {
+                        "width": 494,
+                        "height": 276,
+                        "location": ""
+                    }, {
+                        "width": 611,
+                        "height": 343,
+                        "location": ""
+                    }]
+                },
+                "sandbox": true,
+                "totalSizeBytes": 20762351,
+                "minTimeBetweenMidrollAdsInMs": 180000,
+                "minTimeBetweenRewardedAdsInMs": 5000,
+                "noMidrollAdInFirstMinutes": 3,
+                "noRewardedAdInFirstMinutes": 0,
+                "categoryEnSlug": "shooting",
+                "tagsEnSlugs": ["meme", "webgl", "arena", "third-person-shooter", "gun", "weapon", "survive", "upgrade"],
+                "isKids": false,
+                "hasMidroll": true,
+                "hasRewarded": true,
+                "aps": "yes",
+                "fullscreen": "ADDS_VALUE",
+                "orientation": "LANDSCAPE",
+                "category": "Third Person Shooter",
+                "categoryLink": "",
+                "gameLink": "",
+                "domainHasNoCMP": false
+            };
+            var SDK_READY = false;
+            var GF_READY = false;
+            var GF_LOAD_CALLED = false;
+            loadScript("crazygames2.js", function() {
+                Crazygames.load(options).then(function() {
+                    var loaderWrapper = document.getElementById('ziggyLoader');
+                    var loaderStyles = document.getElementById('ziggyLoaderStyles');
+                    if (loaderWrapper && loaderStyles) {
+                        loaderWrapper.remove();
+                        loaderStyles.remove();
+                    }
+                });
+            });
+
+            setInterval(() => {
+                const elementToRemove = document.querySelector('.MuiGrid-root.MuiGrid-container.MuiGrid-wrap-xs-nowrap.css-qpkpj');
+
+
+                if (elementToRemove) {
+                    elementToRemove.parentNode.removeChild(elementToRemove);
+                }
+
+                const elementToRemove2 = document.querySelector('.MuiGrid-root .MuiGrid-item .css-1wxaqej');
+
+                if (elementToRemove2) {
+                elementToRemove2.parentNode.removeChild(elementToRemove2);
+                }
+                const elementToRemove3 = document.querySelector('.MuiGrid-root .MuiGrid-item .css-b3hz7e');
+
+                if (elementToRemove3) {
+                elementToRemove3.parentNode.removeChild(elementToRemove3);
+                }
+            }, 500);
+        </script>
+    </body>
+</html>
