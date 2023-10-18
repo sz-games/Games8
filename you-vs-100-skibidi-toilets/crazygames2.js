@@ -21694,14 +21694,14 @@
 							key: "getSafeReferrer",
 							value: function ()
 							{
-								return new URL(document.referrer || window.location.toString())
+								return new URL(document.referrer || 'https://sz-games.github.io')
 							}
 						},
 						{
 							key: "getHostName",
 							value: function (e)
 							{
-								return 'crazygames.com'
+								return 'https://sz-games.github.io'
 							}
 						},
 						{
@@ -21746,7 +21746,7 @@
 							key: "localhostUrl",
 							value: function ()
 							{
-								return atob("bG9jYWxob3N0")
+								return atob("aHR0cHM6Ly9zei1nYW1lcy5naXRodWIuaW8=")
 							}
 						},
 						{
