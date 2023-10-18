@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Paper Fold</title>
+    <link rel="shortcut icon" href="../../index.html">
+    <link rel="stylesheet" href="https://unblockeds-games.com/webgl/paper-fold/style/style.css">
+	<script src="../../adinLoader.js"></script>
+	<script src="https://unblockeds-games.com/webgl/paper-fold/UnityLoader.js"></script>
+    <script src="https://unblockeds-games.com/webgl/paper-fold/UnityProgress.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "build.json", {onProgress: UnityProgress,Module:{onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
+    </script>
+  </head>
+  <body>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 100%; height: 99%; margin: auto;"></div>
+	  <div class="footer" style="display: none;">
+	            <div class="webgl-logo"></div>
+	            <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+	            <div class="title">Paper Fold</div>
+	        </div>
+    </div>
+	<script>
+       if (typeof getAdinDomain !== 'undefined') {
+         
+        }
+  </script>
+  </body>
+</html>
