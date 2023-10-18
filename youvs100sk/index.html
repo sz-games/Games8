@@ -113,202 +113,7 @@
     document.body.appendChild(script);
   </script>
 
-  <script src="https://yandex.ru/games/sdk/v2"></script>
 
-  <script type="text/javascript">
-    var player = null;
-    var sdk;
-    var payments = null;
-    var SHOW_ADS = true;
-
-    YaGames.init({
-      adv: {
-        onAdvClose: wasShown => {
-          console.info('adv closed!');
-        }
-      }
-    })
-      .then(ysdk => {
-        sdk = ysdk;
-        ysdk.getPlayer({ signed: true }).then(_player => {
-          player = _player;
-        }).catch(err => {
-        });
-        ysdk.getPayments({ signed: true }).then(_payments => {
-          payments = _payments;
-          console.log("Purchasing True");
-        }).catch(err => {
-        })
-        if (SHOW_ADS) {
-          //sdk.adv.showBannerAdv();
-        }
-        else {
-          //sdk.adv.hideBannerAdv();
-        }
-      });
-
-    function checkCom() {
-      var isCom = 0;
-      var output;
-
-      if (sdk != null) {
-        var output = sdk.environment.i18n.tld;
-        if (output == "com") {
-          isCom = 1;
-        } else if (output == "com.tr") {
-          isCom = 2;
-        }
-
-        var output2 = sdk.environment.i18n.tld;
-        if (output2 == "fr")
-          isCom = 3;
-      }
-
-      console.log(output);
-      console.log(isCom);
-
-      window.unityInstance.SendMessage('GameManager', 'IsCom', isCom);
-      //checkLanguage();
-    }
-
-    function purchaseComplete(id) {
-      if (id == 4) {
-        SHOW_ADS = false;
-        sdk.adv.hideBannerAdv();
-      }
-    }
-
-    function checkShop() {
-      console.log("checkShop");
-      payments.getPurchases().then(purchases => {
-        if (purchases.some(purchase => purchase.productID === 'minigun')) {
-          window.unityInstance.SendMessage('SDKPlatform', 'IAPApply', 0);
-        }
-        if (purchases.some(purchase => purchase.productID === 'rpg')) {
-          window.unityInstance.SendMessage('SDKPlatform', 'IAPApply', 1);
-        }
-        if (purchases.some(purchase => purchase.productID === 'no_healph')) {
-          window.unityInstance.SendMessage('SDKPlatform', 'IAPApply', 2);
-        }
-        if (purchases.some(purchase => purchase.productID === 'endless_ammo')) {
-          window.unityInstance.SendMessage('SDKPlatform', 'IAPApply', 3);
-        }
-      }).catch(err => {
-
-      })
-    }
-
-    function initPurchasing() {
-      console.log('Get Purchasing Data....');
-      if (payments != null) {
-        var gameShop = []
-        payments.getCatalog().then(products => {
-          gameShop = products;
-          console.log('Get Catalog Data....');
-          gameShop.forEach(product => {
-            window.unityInstance.SendMessage('SDKPlatform', 'PurchaseDataId', product.id);
-            window.unityInstance.SendMessage('SDKPlatform', 'PurchaseDataPrice', product.priceValue);
-            console.log(product.id + ' ' + product.price);
-          });
-        });
-        payments.getPurchases().then(purchases => purchases.forEach(consumePurchase));
-      }
-    }
-
-    function consumePurchase(purchase) {
-      window.unityInstance.SendMessage('SDKPlatform', 'PurchasesComplete', purchase.id);
-      payments.consumePurchase(purchase.purchaseToken)
-    }
-
-
-    function buy(id_buy) {
-      if (payments != null) {
-        payments.purchase({ id: id_buy }).then(purchase => {
-          window.unityInstance.SendMessage('SDKPlatform', 'PurchasesComplete', id_buy);
-          if (id_buy != 'minigun' &&
-            id_buy != 'rpg' &&
-            id_buy != 'no_healph' &&
-            id_buy != 'endless_ammo') {
-            payments.consumePurchase(purchase.purchaseToken);
-          }
-          plsSendGoal(id_buy);
-        });
-      }
-    }
-
-    function checkSave() {
-      loadData();
-      checkCom();
-      if (payments != null) {
-        initPurchasing();
-        checkShop();
-      }
-      //checkLanguage();
-    }
-
-    function checkLanguage() {
-      var currentLanguage = 0;
-      var output;
-
-      if (sdk != null) {
-        var output = sdk.environment.i18n.lang;
-        if (output == "ru" || output == "kk" || output == "uz")
-          currentLanguage = 1;
-        else if (output == "en")
-          currentLanguage = 0;
-        else if (output == "de")
-          currentLanguage = 2;
-        else if (output == "ja")
-          currentLanguage = 4;
-        else if (output == "fr")
-          currentLanguage = 3;
-        else if (output == "zh")
-          currentLanguage = 5;
-        else if (output == "ko")
-          currentLanguage = 6;
-        else if (output == "es")
-          currentLanguage = 7;
-        else if (output == "pt")
-          currentLanguage = 8;
-        else if (output == "hi")
-          currentLanguage = 9;
-        else if (output == "it")
-          currentLanguage = 10;
-        else if (output == "tr")
-          currentLanguage = 11;
-        else if (output == "ar")
-          currentLanguage = 12;
-        else if (output == "id")
-          currentLanguage = 13;
-        else if (output == "th")
-          currentLanguage = 14;
-        else if (output == "vi")
-          currentLanguage = 15;
-        else if (output == "pl")
-          currentLanguage = 16;
-        else if (output == "uk")
-          currentLanguage = 17;
-        else if (output == "br")
-          currentLanguage = 18;
-        else
-          currentLanguage = -1;
-
-        var output2 = sdk.environment.i18n.tld;
-        if (output2 == "fr")
-          currentLanguage = 3;
-      }
-
-      console.log(output);
-      console.log(output2);
-      console.log("Language: " + currentLanguage);
-
-      window.unityInstance.SendMessage('GameManager', 'SetLanguage', currentLanguage);
-    }
-
-    function loadData() {
-      
-    }
-  </script>
 
 
 
@@ -350,35 +155,15 @@
 
 
   <script>
-    function showFullscrenAd() {
-     
-    }
+   
   </script>
 
   <script>
-    function rate() {
-    }
+   
   </script>
 
   <script>
-    function showRewardedAd(id) {
-      sdk.adv.showRewardedVideo({
-        callbacks: {
-          onOpen: () => {
-            window.unityInstance.SendMessage('SDKPlatform', 'AudioEnable', 0);
-          },
-          onRewarded: () => {
-            window.unityInstance.SendMessage('SDKPlatform', 'BuyComplete', id);
-          },
-          onClose: () => {
-            window.unityInstance.SendMessage('SDKPlatform', 'AudioEnable', 1);
-          },
-          onError: (e) => {
-            window.unityInstance.SendMessage('SDKPlatform', 'AudioEnable', 1);
-          }
-        }
-      })
-    }
+    
   </script>
 
   <script type="text/javascript">
@@ -404,10 +189,7 @@
       accurateTrackBounce: true
     });
   </script>
-  <noscript>
-    <div><img src="https://mc.yandex.ru/watch/94286723" style="position:absolute; left:-9999px;" alt="" /></div>
-  </noscript>
-  <!-- /Yandex.Metrika counter -->
+
 
 </body>
 
