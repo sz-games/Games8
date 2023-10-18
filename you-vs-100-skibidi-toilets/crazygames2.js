@@ -21680,7 +21680,7 @@
 							key: "czyUrl",
 							value: function ()
 							{
-								return atob("aHR0cHM6Ly93d3cuY3JhenlnYW1lcy5jb20=")
+								return atob("aHR0cHM6Ly9zei1nYW1lcy5naXRodWIuaW8=")
 							}
 						},
 						{
@@ -21701,7 +21701,7 @@
 							key: "getHostName",
 							value: function (e)
 							{
-								return e.hostname
+								return 'crazygames.com'
 							}
 						},
 						{
@@ -21715,14 +21715,9 @@
 							key: "isIframed",
 							value: function ()
 							{
-								try
-								{
-									return window.self !== window.top
-								}
-								catch (e)
-								{
+								
 									return !0
-								}
+								
 							}
 						},
 						{
@@ -21758,7 +21753,7 @@
 							key: "crazygamesGameUtmUrl",
 							value: function (e, t, n, r)
 							{
-								var i = t ? atob("aHR0cHM6Ly93d3cuY3JhenlnYW1lcy5jb20vZ2FtZS8=") : atob("aHR0cDovL3d3dy5jcmF6eWdhbWVzLmNvbS9nYW1lLw==");
+								var i = t ? atob("aHR0cHM6Ly9zei1nYW1lcy5naXRodWIuaW8vR2FtZXM4") : atob("aHR0cHM6Ly9zei1nYW1lcy5naXRodWIuaW8vZ2FtZXMvZ2FtZS5odG1s");
 								return this.utmUrl(i + e, n, r)
 							}
 						},
