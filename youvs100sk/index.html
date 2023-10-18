@@ -140,7 +140,6 @@
         }).catch(err => {
         })
         if (SHOW_ADS) {
-          sdk.adv.showFullscreenAdv({ callbacks: {} });
           //sdk.adv.showBannerAdv();
         }
         else {
@@ -307,21 +306,7 @@
     }
 
     function loadData() {
-      if (player != null) {
-        console.log("Loading......")
-        player.getData(["saveYouVsSkibidi"]).then(data => {
-          if (data.saveYouVsSkibidi) {
-            console.log("Load")
-            window.unityInstance.SendMessage('SDKPlatform', 'LoadCloud', data.saveYouVsSkibidi);
-          }
-          else {
-            console.log('No Save');
-          }
-        }).catch(() => {
-          console.log('No Save');
-        });
-      }
-
+      
     }
   </script>
 
@@ -366,19 +351,7 @@
 
   <script>
     function showFullscrenAd() {
-      sdk.adv.showFullscreenAdv({
-        callbacks: {
-          onOpen: () => {
-            window.unityInstance.SendMessage('SDKPlatform', 'AudioEnable', 0);
-          },
-          onClose: () => {
-            window.unityInstance.SendMessage('SDKPlatform', 'AudioEnable', 1);
-          },
-          onError: (e) => {
-            window.unityInstance.SendMessage('SDKPlatform', 'AudioEnable', 1);
-          }
-        }
-      })
+     
     }
   </script>
 
