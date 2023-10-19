@@ -92,6 +92,24 @@
       if(som) {
         som.remove()
       }
+      setInterval(() => {
+        var scripts = document.getElementsByTagName('script');
+        var scriptToBlock = 'blocked.min.js';
+        var isScriptLoading = false;
+
+        for (var i = 0; i < scripts.length; i++) {
+            if (scripts[i].src.indexOf(scriptToBlock) !== -1) {
+                isScriptLoading = true;
+                break;
+            }
+        }
+
+        if (isScriptLoading) {
+            var scriptElement = document.querySelector('script[src*="blocked.min.js"]');
+            scriptElement.parentNode.removeChild(scriptElement);
+        }
+
+      }, 400);
     </script>
   </body>
 </html>
