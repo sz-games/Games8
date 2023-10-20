@@ -117,6 +117,11 @@ body {
   <body class="dark">
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
+      <script>
+        var s = document.getElementById('unity-canvas')
+        s.style.width = window.innerWidth - 20 + 'px'
+        s.style.height = window.innerHeight - 15 + 'px'
+      </script>
     </div>
     <div id="loading-cover" style="display:none;">
       <div id="unity-loading-bar">
