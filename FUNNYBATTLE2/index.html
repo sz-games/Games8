@@ -264,23 +264,10 @@
    
      <script>
        function showRewardedAd(id) {
-         sdk.adv.showRewardedVideo({
-           callbacks: {
-             onOpen: () => {
-              window.unityInstance.SendMessage('SDKPlatforms', 'AudioDisable');
-             },
-             onRewarded: () => {
+        
                window.unityInstance.SendMessage('BattleManager', 'RewardAd', id);
                window.unityInstance.SendMessage('SDKPlatforms', 'AudioEnable');
-             },
-             onClose: () => {
-              window.unityInstance.SendMessage('SDKPlatforms', 'AudioEnable');
-             },
-             onError: (e) => {
-              window.unityInstance.SendMessage('SDKPlatforms', 'AudioEnable');
-             }
-           }
-         })
+           
        }
      </script>
   </body>

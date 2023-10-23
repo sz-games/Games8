@@ -237,23 +237,11 @@
 
   <script>
     function showRewardedAd(id) {
-      sdk.adv.showRewardedVideo({
-        callbacks: {
-          onOpen: () => {
-            window.unityInstance.SendMessage('SDKPlatform', 'AudioEnable', 0);
-          },
-          onRewarded: () => {
+    
+       
             window.unityInstance.SendMessage('SDKPlatform', 'AudioEnable', 1);
             window.unityInstance.SendMessage('SDKPlatform', 'rewardAdsCompleted');
-          },
-          onClose: () => {
-            window.unityInstance.SendMessage('SDKPlatform', 'AudioEnable', 1);
-          },
-          onError: (e) => {
-            window.unityInstance.SendMessage('SDKPlatform', 'AudioEnable', 1);
-          }
-        }
-      })
+        
     }
   </script>
 
