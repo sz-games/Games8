@@ -204,17 +204,7 @@
   
     <script>
       function rate() {
-        sdk.feedback.canReview()
-          .then(({ value, reason }) => {
-            if (value) {
-             sdk.feedback.requestReview()
-                .then(({ feedbackSent }) => {
-                  console.log(feedbackSent);
-                })
-            } else {
-              console.log(reason)
-            }
-          })
+        return;
       }
     </script>
   
