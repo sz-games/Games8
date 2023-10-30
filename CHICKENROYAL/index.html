@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,viewport-fit=cover,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Unity WebGL Player | Chicken Royale</title>
+        <link rel="stylesheet" href="./TemplateData/unityapp-0.8.4.css">
+
+        <script type="application/javascript" src="./TemplateData/unityapp-0.8.4.min.js"></script>
+        <script type="application/javascript">
+            window.unityapp.init({
+                unity: {
+                    companyName: "Rush Production & Inventio Studio",
+                    productName: "Chicken Royale",
+                    productVersion: "1.0.0",
+                    filenameLoader: "d50cc3ee055c5f5e237cc0492cefedce.js",
+                    filenameData: "6de906397cd579daa7f7e8fa16294d67.data",
+                    filenameFramework: "dab8e12a279f50c78945c1f0088553e9.js",
+                    filenameCode: "a5d4f54385c367ba46a38df80e9e248a.wasm",
+                    filenameMemory: "",
+                    filenameSymbols: "",
+                    configPreset: "1x1-1",
+                },
+                yandex: {
+                    adv: {
+                        onAdvClose: function (wasShown) {
+                            console.info("adv closed!");
+                        },
+                    },
+                    screen: {
+                        fullscreen: true,
+                        orientation: {
+                            value: window.unityapp.isMobile ? "portrait" : "landscape",
+                            lock: window.unityapp.isMobile,
+                        },
+                    },
+                },
+                storage: { autoSavePeriod: 10000, remoteKey: "matches_played" },
+            });
+        </script>
+    </head>
+
+    <body style="width: 100vw; height: 100vh; overflow: hidden">
+    
+
+        <div id="unity-container" class="unity-desktop">
+            <canvas id="unity-canvas" tabindex="0"></canvas>
+            <div id="unity-content">
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div id="unity-game-logo">
+                    <img width="100%" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEzMC4yIDQxLjMiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEuOSI+PHBhdGggZmlsbC1ydWxlPSJub256ZXJvIiBkPSJtIDEwNywyOTQgdiAtMTguMyBoIDMuOSB2IDE2LjUgYyAwLDEgLTAuOCwxLjcgLTEuNywxLjcgeiBtIC05LjUsMCBoIC0yLjEgdiAtMTUuMSBoIC01IHYgLTMuMiBoIDEzLjggdiAxLjUgYyAwLDEgLTAuOCwxLjcgLTEuNywxLjcgaCAtMy4yIHYgMTMuMyBjIDAsMSAtMC44LDEuNyAtMS43LDEuNyBNIDY2LjQsMjk0IGggLTExIHYgLTE4LjMgaCAxMi43IHYgMS40IGMgMCwxIC0wLjgsMS43IC0xLjcsMS43IGggLTcuMSB2IDQgaCA3LjEgdiAzLjIgaCAtNy4xIHYgNC43IGggOC45IHYgMS41IGMgMCwxIC0wLjgsMS43IC0xLjcsMS43IE0gNTEuMiwyNzUuNyBoIDIgTCA0NywyOTQgaCAtNC4yIGwgLTYuMiwtMTguMyBoIDMuOSBsIDMuNCwxMC45IGMgMC4yLDAuNiAwLjQsMS40IDAuNiwyLjIgMC4yLDAuOSAwLjMsMS41IDAuNCwxLjggMC4xLC0wLjggMC4zLC0yLjEgMC45LC00IGwgMi45LC05LjIgYyAwLjMsLTEgMS40LC0xLjcgMi41LC0xLjcgbSAtMTcsMTguMyBoIC00LjkgbCAtOCwtMTMuOCBoIC0wLjEgYyAwLjIsMi40IDAuMiw0LjIgMC4yLDUuMiB2IDYuOSBjIDAsMSAtMC44LDEuNyAtMS43LDEuNyBIIDE4IHYgLTE4LjMgaCA0LjkgbCA3LjksMTMuNyBoIDAuMSBjIC0wLjEsLTIuNCAtMC4yLC00LjEgLTAuMiwtNSB2IC02LjkgYyAwLC0xIDAuOCwtMS43IDEuNywtMS43IGggMS44IHogbSA1My40LDAgaCAtNC45IGwgLTgsLTEzLjggaCAtMC4xIGMgMC4yLDIuNCAwLjIsNC4yIDAuMiw1LjIgdiA2LjkgYyAwLDEgLTAuOCwxLjcgLTEuNywxLjcgaCAtMS43IHYgLTE4LjMgaCA0LjkgbCA3LjksMTMuNyBoIDAuMSBjIC0wLjEsLTIuNCAtMC4yLC00LjEgLTAuMiwtNSB2IC02LjkgYyAwLC0xIDAuOCwtMS43IDEuNywtMS43IGggMS44IHogbSAtNzguMSwwIHYgLTE4LjMgaCAzLjkgdiAxNi41IGMgMCwxIC0wLjgsMS43IC0xLjcsMS43IHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yLjggLTMuNSkgdHJhbnNsYXRlKDAgLTI0OS40KSIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0ibSAxMjMuNiwyNzUuNCBjIDUuMiwwIDkuNCw0LjIgOS40LDkuNCAwLDUuMiAtNC4yLDkuNCAtOS40LDkuNCAtNS4yLDAgLTkuNCwtNC4yIC05LjQsLTkuNCAwLC01LjIgNC4yLC05LjQgOS40LC05LjQgeiBtIDAsMy4yIGMgMy4zLDAgNS45LDIuOCA1LjksNi4yIDAsMy40IC0yLjcsNi4yIC01LjksNi4yIC0zLjMsMCAtNS45LC0yLjggLTUuOSwtNi4yIDAsLTMuNCAyLjcsLTYuMiA1LjksLTYuMiBtIC0xMDMsLTIxLjIgMS43LC0wLjYgYyAwLjIsLTAuMSAwLjMsMCAwLjQsMC4xIDAuNCwwLjQgMC43LDAuOSAxLDEuNCAwLjMsMC41IDAuNSwxIDAuNywxLjUgMC4xLDAuMiAwLjEsMC40IC0wLjEsMC41IGwgLTEuNCwxLjIgdiAwIGMgLTAuNywwLjYgLTAuNCwyLjEgMC4zLDIuNSB2IDAgbCAxLjYsMC44IGMgMC4yLDAuMSAwLjIsMC4zIDAuMiwwLjQgLTAuMSwwLjYgLTAuMiwxLjEgLTAuMywxLjYgLTAuMSwwLjUgLTAuMywxLjEgLTAuNiwxLjYgLTAuMSwwLjIgLTAuMiwwLjMgLTAuNCwwLjMgbCAtMS44LC0wLjIgdiAwIGMgLTAuOSwtMC4xIC0xLjgsMS4yIC0xLjUsMiB2IDAgbCAwLjYsMS43IGMgMC4xLDAuMiAwLDAuMyAtMC4yLDAuNSAtMC40LDAuMyAtMC45LDAuNyAtMS40LDAuOSAtMC41LDAuMyAtMSwwLjUgLTEuNSwwLjcgLTAuMiwwLjEgLTAuMywwIC0wLjUsLTAuMSBsIC0xLjIsLTEuNCBjIC0wLjMsLTAuNCAtMC45LC0wLjUgLTEuNCwtMC4zIHYgMCBjIC0wLjQsMCAtMC45LDAuMSAtMS4zLDAgbCAwLjQsLTEuMyB2IDAgYyAwLjMsLTEuMSAxLjEsLTIgMi4xLC0yLjYgMS41LC0wLjcgMi41LC0xLjggMi45LC0zLjQgMC43LC0yLjggLTAuOSwtNS42IC0zLjcsLTYuNCAtMi44LC0wLjcgLTUuNiwwLjkgLTYuNCwzLjcgLTAuNCwxLjYgLTAuMSwzIDAuOCw0LjQgMC42LDAuOSAwLjgsMi4xIDAuNSwzLjIgbCAtMC40LDEuNCBjIC0wLjQsLTAuMiAtMC44LC0wLjQgLTEuMSwtMC43IHYgMCBjIC0wLjQsLTAuNCAtMSwtMC42IC0xLjQsLTAuNCBMIDUuNSwyNzEgYyAtMC4yLDAuMSAtMC4zLDAgLTAuNCwtMC4xIC0wLjQsLTAuNCAtMC43LC0wLjkgLTEsLTEuNCAtMC4zLC0wLjUgLTAuNSwtMSAtMC43LC0xLjUgLTAuMSwtMC4yIC0wLjEsLTAuNCAwLjEsLTAuNSBsIDEuNCwtMS4yIHYgMCBjIDAuNywtMC42IDAuNCwtMi4xIC0wLjMsLTIuNSB2IDAgbCAtMS41LC0wLjcgYyAtMC4yLC0wLjEgLTAuMiwtMC4zIC0wLjIsLTAuNCAwLjEsLTAuNiAwLjIsLTEuMSAwLjMsLTEuNiAwLjEsLTAuNSAwLjMsLTEuMSAwLjYsLTEuNiAwLjEsLTAuMiAwLjIsLTAuMyAwLjQsLTAuMyBsIDEuOCwwLjIgdiAwIGMgMC45LDAuMSAxLjgsLTEuMiAxLjUsLTIgdiAwIGwgLTAuNiwtMS43IGMgLTAuMSwtMC4yIDAsLTAuMyAwLjIsLTAuNSAwLjQsLTAuMyAwLjksLTAuNyAxLjQsLTAuOSAwLjUsLTAuMyAxLC0wLjUgMS41LC0wLjcgMC4yLC0wLjEgMC4zLDAgMC41LDAuMSBsIDEuMiwxLjQgYyAwLjYsMC43IDIuMSwwLjQgMi41LC0wLjMgbCAwLjgsLTEuNiBjIDAuMSwtMC4yIDAuNCwtMC4yIDAuNiwtMC4yIGwgMS41LDAuMyBjIDAuNSwwLjEgMSwwLjMgMS40LDAuNSAwLjIsMC4xIDAuNCwwLjIgMC40LDAuNSBsIC0wLjIsMS44IGMgLTAuMSwwLjkgMS4xLDEuNiAxLjksMS4zIHogTSA5LjcsMjcyLjYgOS45LDI3MiBjIDAuNiwwLjMgMS4yLDAuNSAxLjgsMC43IDAuNiwwLjIgMS4zLDAuMyAxLjksMC4zIGwgLTAuMiwwLjYgYyAtMC4yLDAuOSAtMS4yLDEuNSAtMi4xLDEuMiBsIC0wLjQsLTAuMSBDIDEwLDI3NC41IDkuNCwyNzMuNSA5LjcsMjcyLjYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yLjggLTMuNSkgdHJhbnNsYXRlKDAgLTI0OS40KSIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0ibSAxNC43Nzg2MDEsMjYxLjA1NjI2IGMgMS40NzU5LDAuMzk0OTEgMi4zOTIwMTMsMS44MzMzOSAyLjE3MDE1NCwzLjMwODcxIGwgLTAuOTI0ODM1LC0xLjYwMTYzIGMgLTAuNjQsLTEuMTA3NzkgLTIuMDY5MjAzLC0xLjQ5MDY4IC0zLjE3Njk1MSwtMC44NTE0NiAtMS4xMDc5NDQsMC42NDAwNCAtMS40OTA2MjQsMi4wNjkyNiAtMC44NTE0LDMuMTc3IGwgMC45MjUwMjgsMS42MDE2NyBjIC0xLjM4ODUwOSwtMC41NDU0IC0yLjE3NjE1OCwtMi4wNTgyMiAtMS43ODA2ODUsLTMuNTMzMzQgMC40MjQ1MTYsLTEuNTg1MTUgMi4wNTM3MDEsLTIuNTI2MDggMy42Mzg2ODksLTIuMTAwOTUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yLjggLTMuNSkgdHJhbnNsYXRlKDAgLTI0OS40KSIvPjwvZz48L3N2Zz4K">
+                    <img width="100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA2MAAAEhBAMAAAAAEGV0AAAAIVBMVEUpEg31nxT///8AAAApEg2ZIhm/MRr1nxT/ySn/6W7///+4HSrtAAAAA3RSTlMAAAD6dsTeAAADgUlEQVR42u3dsU3DQBQG4IgNsgEK2SANZUABeQFWYAKkDBAkYAPoqZiSIk4RKz6ffWdjm+9vc3q+e1+6J58Xq3+UXTCLMj2U3qaUruR6gQwZMmTIkCFDhgwZMmTIkCFDhgwZMmTIkCFDNg6q92BOq1qVXkeVfj0vfV0KXiFDhgwZMmTIkCFDhgwZMmTIkCFDhgwZMmTIkE0pcf2sobuP+hsUXUpvkSFDhgwZMmTIkCFDhgwZMmTIkCFDhgwZMmTIkCEbkKxmxFnzayuyuNIFMmTIkCFDhgwZMmTIkCFDhgwZMmTIkCFDhgzZlG0qeS5TaeDPMd9hsnDpx2Dpn8tk9ylnRYYMGTJkyJAhQ4YMGTJkyJAhQ4YMGTJkyJAh6y+VxjXkcgNr5mVV75TSRcooble9GRAZMmTIkCFDhgwZMmTIkCFDhgwZMmTIkCFDhmygednDUzBxt7tdnpf1UTpMVtRdM4cMGTJkyJAhQ4YMGTJkyJAhQ4YMGTJkyJAhGzPZJiXlM242k8ptuK85H4UMGTJkyJAhQ4YMGTJkyJAhQ4YMGTJkyJAhQ4ZsImQNx4g7VdzqpFXhHKIeEUd2G7XNhlWtyNaXv9KEDBkyZMiQIUOGDBkyZMiQIUOGDBkyZMiQIZs/WR8YSRtpRZY0VctBVpMifDhkyJAhQ4YMGTJkyJAhQ4YMGTJkyJAhQ4YM2fzJOnVqNGTDz8uSggwZMmTIkCFDhgwZMmTIkCFDhgwZMmTIkCGbAdkhaoMDdGo0G0ki+2qTT2TIkCFDhgwZMmTIkCFDhgwZMmTIkCFDhgwZMmTIsm4knDiMdrWQIUOGDBkyZMiQIUOGDBkyZMiQIUOGDBkyZMj+LVncRgYgq6mJDBkyZMiQIUOGDBkyZMiQIUOGDBkyZMiQIUM2MrLhbhlEhgwZMmTIkCFDhgwZMmTIkCFDhgwZMmTIkCGbFFlDcmwkLp2+rPQR9XbS2/6Yl9JqcQoyZMiQIUOGDBkyZMiQIUOGDBkyZMiQIUOGbLpkkWOhsbwjNLp52T5DkCFDhgwZMmTIkCFDhgwZMmTIkCFDhgwZMmTIkI2OrNPYr6HNOfj/nKx6mBxUd8tjkCFDhgwZMmTIkCFDhgwZMmTIkCFDhgwZMmRTIuuW1Xly1LrZzCG7DDlRLZEhQ4YMGTJkyJAhQ4YMGTJkyJAhQ4YMGTJkEyL7BfXAuhQTxqLmAAAAAElFTkSuQmCC">
+                </div>
+                <div></div>
+
+                <div></div>
+                <div class="unity-progress-bar stripes animated reverse slower">
+                    <span id="unity-progress-bar-fill" class="progress-bar-inner"></span>
+                </div>
+                <div></div>
+            </div>
+
+            <div id="unity-warning"></div>
+        </div>
+    </body>
+</html>
