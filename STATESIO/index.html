@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>States io</title>
+    <link rel="stylesheet" href="./TemplateData/style.css">
+    <script src="./TemplateData/azerion-libs.js"></script>
+</head>
+<body>
+  <div id="unity-container">
+    <canvas id="unity-canvas"></canvas>
+  </div>
+  <div id="loader">Loading...
+    <div id="loaderR"></div>
+  </div>
+  
+
+  <script type="text/javascript">
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    var buildUrl = "Build";
+    var loaderUrl = buildUrl + "/_build.loader.js";
+    var config = {
+      dataUrl: buildUrl + "/_build.data",
+      frameworkUrl: buildUrl + "/_build.framework.js",
+      codeUrl: buildUrl + "/_build.wasm",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "2play",
+      productName: "States io",
+      productVersion: "0.2",
+    };
+
+    var unityInstance;
+    var isAdPlaying = false;
+    var azAdWrapper;
+    var loader = document.getElementById('loader');
+    var gameContainer = document.getElementById('unity-container');
+
+    if (window.hasOwnProperty('fbrqSA') && window['fbrqSA'] === true) {
+        h5branding.Utils.ASSET_LOCATION = 'assets/';
+    }
+
+    h5branding.SplashLoader.getInstance({
+        gameId: _azerionIntegration.gdId,
+        gameName: document.title,
+        gameTitle: document.title,
+        libs: [],
+        version: '1.0',
+    }).create()
+    .then(() => {
+      sdkInit(_azerionIntegration.gameId);
+      hideLoader();
+    })
+    .catch((e) => {
+        console.error('h5branding not loaded', e);
+    });
+
+    function pause() {
+        if (unityInstance && isAdPlaying === false) {
+            unityInstance.SendMessage("GameDistribution", "PauseGameCallback");
+        }
+    }
+
+    function resume() {
+        if (unityInstance && isAdPlaying === false) {
+            unityInstance.SendMessage("GameDistribution", "ResumeGameCallback");
+        }
+    }
+
+    window.onblur = pause;
+    window.onpagehide = pause;
+
+    window.onfocus = resume;
+    window.onpageshow = resume;
+
+    function sdkInit(gameId) {
+        return;
+    }
+
+    function sdkShowAd() {
+       return;
+    }
+
+    function sdkShowRewardedAd() {
+       
+            success = true;
+            unityInstance.SendMessage("GameDistribution", "RewardedCompleteCallback");
+       return;
+    }
+
+    function sdkPreloadRewardedAd() {
+        return;
+    }
+
+    function sdkSendGameEvent(options) {
+        //
+    }
+
+    function sdkGetLocale() {
+      if (window._YaSDK) {
+        return window._YaSDK.environment.i18n.lang;
+      }
+      // ?lang=en
+      const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop)
+      });
+
+      if (params.lang) {
+          return params.lang;
+      }
+      return '';
+    }
+
+    function sdkGetTLD() {
+      if (window._YaSDK) {
+        return window._YaSDK.environment.i18n.tld;
+      }
+      return "";
+    }
+
+    function showLoader() {
+        if (loader) {
+            loader.style.display = 'block';
+        }
+        gameContainer.style.pointerEvents = 'none';
+    }
+
+    function hideLoader() {
+        if (loader) {
+            loader.style.display = 'none';
+        }
+        gameContainer.style.pointerEvents = 'auto';
+    }
+
+    var canvas = document.querySelector("#unity-canvas");
+
+    var script = document.createElement("script");
+    script.src = loaderUrl;
+    script.onload = () => {
+      createUnityInstance(canvas, config, (progress) => {
+        h5branding.SplashLoader.getInstance().setLoadProgress(100 * progress);
+      }).then((unityI) => {
+        unityInstance = unityI;
+          h5branding.SplashLoader.getInstance().setLoadProgress(100);
+          h5branding.SplashLoader.getInstance().setButtonCallback(() => {
+              h5branding.SplashLoader.getInstance().destroy();
+              sdkShowAd();
+          });
+      }).catch((message) => {
+        alert(message);
+      });
+    };
+    document.body.appendChild(script);
+  </script>
+</body>
+</html>
